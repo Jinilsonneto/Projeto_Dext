@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,13 @@
 </head>
 <body>
     <h1 class="Centralizado">Atualizção Padrão</h1>
+    <div class="update-section">
+  <button onclick="revealUpdate(this)">Ver Atualizações</button>
+  <div class="loader" style="display: none;"></div>
+  <div class="update-content" style="display: none;">
     <p>Sistema padrão instalado desde o surgimento.</p>
     <p>Antivirus: Ativo</p>
-    <p>Consiensia: Estavel</p>
+        <p>Consiensia: Estavel</p>
     <p>Proteção adicional: Nenhuma</p>
     <p>Módulo de Interpretação Emocional: Ativo</p>
 <p>Filtro de Causalidade: Estável</p>
@@ -19,6 +23,22 @@
 <p>Núcleo de Autodestruição: Inacessível</p>
 <p>Atualização do Núcleo: Não necessário</p>
 <p>Sistema: Mais atual</p>
+  </div>
+</div>
+<script>
+  function revealUpdate(button) {
+    const loader = button.nextElementSibling;
+    const content = loader.nextElementSibling;
+
+    button.style.display = 'none';
+    loader.style.display = 'block';
+
+    setTimeout(() => {
+      loader.style.display = 'none';
+      content.style.display = 'block';
+    }, 2000); // 2 segundos de "carregando"
+  }
+</script>
 
 </body>
 </html>
