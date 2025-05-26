@@ -9,22 +9,24 @@
 <body>
     <h1 class="Centralizado">Atualizção Padrão</h1>
     <div class="update-section">
-  <button onclick="revealUpdate(this)">Ver Atualizações</button>
+  <button onclick="revealUpdate(this)">Ver Atualização</button>
   <div class="loader" style="display: none;"></div>
   <div class="update-content" style="display: none;">
     <p>Sistema padrão instalado desde o surgimento.</p>
+    <p>Núcleo neural: Perfeito</p>
     <p>Antivirus: Ativo</p>
-        <p>Consiensia: Estavel</p>
+    <p>Consiensia: Estavel</p>
     <p>Proteção adicional: Nenhuma</p>
     <p>Módulo de Interpretação Emocional: Ativo</p>
 <p>Filtro de Causalidade: Estável</p>
 <p>Capacidade de Autocrítica: Funcional</p>
 <p>Empatia Sintética: Ativa</p>
-<p>Núcleo de Autodestruição: Inacessível</p>
+<p>Núcleo de <a href="Auto_Destruição.html">Auto Destruição</a> Inacessível</p>
 <p>Atualização do Núcleo: Não necessário</p>
 <p>Sistema: Mais atual</p>
   </div>
 </div>
+<p class="PBaixo">Sistema Dext 1.0</p>
 <script>
   function revealUpdate(button) {
     const loader = button.nextElementSibling;
@@ -36,7 +38,7 @@
     setTimeout(() => {
       loader.style.display = 'none';
       content.style.display = 'block';
-    }, 2000); // 2 segundos de "carregando"
+    }, 3000);
   }
 </script>
 
