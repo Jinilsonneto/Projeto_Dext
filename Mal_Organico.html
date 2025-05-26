@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="Estilo.css">
+    <title>Eu Não Me Lembro!!!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif; /* Usando a fonte Inter */
+            margin: 0;
+            overflow: hidden; /* Esconde barras de rolagem se a frase sair da tela */
+            background-color: rgb(19, 19, 19); /* Um fundo claro para melhor contraste */
+            min-height: 100vh; /* Garante que o corpo ocupe toda a altura da viewport */
+            position: relative; /* Necessário para posicionar os elementos filhos absolutamente */
+        }
+
+        .random-phrase {
+            position: absolute; /* Permite posicionamento aleatório */
+            font-size: 2.5rem; /* Tamanho da fonte grande */
+            font-weight: bold; /* Negrito */
+            color: #d60b0b; /* Cor vermelha vibrante do Tailwind CSS (red-500) */
+            white-space: nowrap; /* Evita que a frase quebre em várias linhas */
+            pointer-events: none; /* Permite clicar através da frase para elementos abaixo */
+            opacity: 0.8; /* Levemente transparente */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+            border-radius: 0.5rem; /* Bordas arredondadas */
+            padding: 0.25rem 0.75rem; /* Espaçamento interno */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra suave */
+            transition: opacity 1s ease-in-out; /* Transição suave para a opacidade */
+        }
+
+        /* Estilos responsivos usando Tailwind CSS */
+        @media (max-width: 768px) {
+            .random-phrase {
+                font-size: 1.5rem; /* Tamanho da fonte menor em telas menores */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const phraseText = "Eu Não Me Lembro!!!";
+            const numberOfPhrases = 300; // Quantidade total de frases a serem geradas
+            let phrasesCreated = 0; // Contador de frases já criadas
+            const delayBetweenPhrases = 1000; // Atraso em milissegundos (1 segundo) entre cada frase
+
+            // Função para gerar um número aleatório dentro de um intervalo
+            function getRandomNumber(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            // Função para criar e posicionar uma frase aleatoriamente
+            function createRandomPhrase() {
+                const phraseElement = document.createElement('div');
+                phraseElement.textContent = phraseText;
+                phraseElement.classList.add('random-phrase');
+
+                // Obter as dimensões da viewport
+                const viewportWidth = window.innerWidth;
+                const viewportHeight = window.innerHeight;
+
+                // Adicionar o elemento ao DOM temporariamente para calcular suas dimensões
+                // Isso é importante para evitar que a frase seja cortada na borda direita/inferior
+                document.body.appendChild(phraseElement);
+                const phraseWidth = phraseElement.offsetWidth;
+                const phraseHeight = phraseElement.offsetHeight;
+
+                // Gerar posições aleatórias, garantindo que a frase esteja visível dentro da viewport
+                const randomLeft = getRandomNumber(0, viewportWidth - phraseWidth);
+                const randomTop = getRandomNumber(0, viewportHeight - phraseHeight);
+
+                phraseElement.style.left = `${randomLeft}px`;
+                phraseElement.style.top = `${randomTop}px`;
+
+                // A opacidade inicial pode ser 0 para uma transição de "aparecer"
+                phraseElement.style.opacity = '0';
+                // Forçar um reflow para garantir que a transição funcione
+                void phraseElement.offsetWidth;
+                phraseElement.style.opacity = '0.8'; // Mudar para a opacidade final para a transição
+
+                document.body.appendChild(phraseElement);
+            }
+
+            // Função para iniciar a geração gradual das frases
+            function startGradualPhraseGeneration() {
+                const intervalId = setInterval(() => {
+                    if (phrasesCreated < numberOfPhrases) {
+                        createRandomPhrase();
+                        phrasesCreated++;
+                    } else {
+                        clearInterval(intervalId); // Para o intervalo quando todas as frases forem criadas
+                    }
+                }, delayBetweenPhrases);
+            }
+
+            // Iniciar a geração gradual das frases ao carregar a página
+            startGradualPhraseGeneration();
+
+            // Opcional: Adicionar um listener para recriar as frases ao redimensionar a janela
+            // Isso pode ser útil para garantir que as frases se ajustem a diferentes tamanhos de tela
+            // window.addEventListener('resize', () => {
+            //     // Remover todas as frases existentes antes de recriar
+            //     document.querySelectorAll('.random-phrase').forEach(el => el.remove());
+            //     phrasesCreated = 0; // Resetar o contador
+            //     startGradualPhraseGeneration(); // Reiniciar a geração
+            // });
+        });
+    </script>
+</body>
+</html>

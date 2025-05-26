@@ -1,0 +1,46 @@
+h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+font-size: 45px;
+color: rgb(177, 0, 0);
+margin-bottom: 70px;
+margin-left: 60px;
+}
+body {
+    background-color: rgb(19, 19, 19);
+}
+a {
+    color: blanchedalmond;
+    text-decoration: none;
+}
+.Visivel{
+    color: rgb(177, 0, 0);
+    font-size: 15px;
+}
+H2 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 35px;
+    Color: rgb(177, 0, 0);
+    margin-left: 50px;
+    margin-right: 50px;
+}
+p {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
+    color: blanchedalmond;
+    margin-right: 50px;
+    margin-left: 60px;
+}
+.Centralizado {
+  text-align: center;
+}
+.Diferente {
+    text-decoration:underline;
+    margin-bottom: 25px;
+    margin-left: 50px;
+}
+.Posts {
+    text-decoration: underline;
+    margin-bottom: 25px;
+    margin-left: 40px;
+    font-size: 15px;
+}
