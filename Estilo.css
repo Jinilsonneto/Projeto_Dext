@@ -13,8 +13,9 @@ a {
     text-decoration: none;
 }
 .Visivel{
-    color: rgb(177, 0, 0);
+    color: rgb(52, 0, 148);
     font-size: 15px;
+    margin-right: 15px;
 }
 .Visivel1{
     color: rgb(177, 0, 0);
@@ -52,7 +53,8 @@ p {
     text-decoration: underline;
     margin-bottom: 25px;
     margin-left: 40px;
-    font-size: 15px;
+    font-size: 17px;
+    color: rgb(52, 0, 148);
 }
 .update-section {
   margin-top: 20px;
@@ -208,4 +210,11 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+.index {
+    text-decoration: underline;
+    margin-bottom: 25px;
+    margin-left: 40px;
+    font-size: 15px;
 }
